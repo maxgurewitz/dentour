@@ -6,8 +6,11 @@
   "scripts": {
     "start": "npm run build && npm run watch",
     "build": "tsc",
-    "watch": "tsc -w",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "concurrently 'npm run node-watch' 'npm run ts-watch' -n ',typescript' -c 'blue,red' -p '{name}'",
+    "node-watch": "nodemon bin/start",
+    "ts-watch": "tsc -w",
+    "test": "tsc && ava dist/js/tests/**/*.spec.js",
+    "test-watch": "ava dist/js/tests/**/*.spec.js --watch"
   },
   "repository": {
     "type": "git",
@@ -20,6 +23,14 @@
   },
   "homepage": "https://github.com/maxgurewitz/dentour#readme",
   "devDependencies": {
+    "@types/koa": "^2.0.39",
+    "@types/node": "^8.0.14",
+    "ava": "^0.21.0",
+    "concurrently": "^3.5.0",
+    "nodemon": "^1.11.0",
     "typescript": "^2.4.1"
+  },
+  "dependencies": {
+    "koa": "^2.3.0"
   }
 }

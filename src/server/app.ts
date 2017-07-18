@@ -8,4 +8,4 @@ const helloWorld : Koa.Middleware = ctx => {
 
 app.use(helloWorld);
 
-module.exports = app;
+export default app;
