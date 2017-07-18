@@ -2,8 +2,11 @@
   "name": "dentour",
   "version": "1.0.0",
   "description": "Orthodontic tourism.",
-  "main": "src/server/bin/start.js",
+  "main": "bin/start.js",
   "scripts": {
+    "start": "npm run build && npm run watch",
+    "build": "tsc",
+    "watch": "tsc -w",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/maxgurewitz/dentour/issues"
   },
-  "homepage": "https://github.com/maxgurewitz/dentour#readme"
+  "homepage": "https://github.com/maxgurewitz/dentour#readme",
+  "devDependencies": {
+    "typescript": "^2.4.1"
+  }
 }
