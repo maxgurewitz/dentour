@@ -5,9 +5,10 @@
   "main": "bin/start.js",
   "scripts": {
     "start": "npm run build && npm run watch",
-    "build": "tsc",
+    "build": "tsc && npm run tslint",
     "watch": "concurrently 'npm run node-watch' 'npm run ts-watch' -n ',typescript' -c 'blue,red' -p '{name}'",
     "node-watch": "nodemon bin/start",
+    "tslint": "tslint -c tslint.json -p tsconfig.json",
     "ts-watch": "tsc -w",
     "test": "tsc && ava dist/js/tests/**/*.spec.js",
     "test-watch": "ava dist/js/tests/**/*.spec.js --watch"
@@ -28,6 +29,7 @@
     "ava": "^0.21.0",
     "concurrently": "^3.5.0",
     "nodemon": "^1.11.0",
+    "tslint": "^5.5.0",
     "typescript": "^2.4.1"
   },
   "dependencies": {
