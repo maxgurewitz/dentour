@@ -1,4 +1,4 @@
-import app from '../server/app';
+import app from '../app';
 import test from 'ava';
 
 test('foo', t =>

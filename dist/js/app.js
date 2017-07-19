@@ -6,5 +6,5 @@ const helloWorld = ctx => {
     ctx.body = 'Hello Koa';
 };
 app.use(helloWorld);
-module.exports = app;
+exports.default = app;
 //# sourceMappingURL=app.js.map
